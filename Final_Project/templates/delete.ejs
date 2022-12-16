@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <title>Remove</title>
+</head>
+
+<body id="bg">
+    <div id="pagesBg">
+        <h1>Removing All Locations</h1>
+        <form id="applicaton" action="/reviewDelete" method="post">
+            <input id="removeB" type="submit" value="Remove all locations" />
+            <hr>
+        </form>
+        <a href="/">HOME</a>
+    </div>
+</body>
+<script>
+    function confirmation() {
+        return window.confirm("Are you sure you want to remove all Restaurants?");
+    }
+    window.onsubmit = confirmation;
+</script></html>

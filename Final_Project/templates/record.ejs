@@ -1,0 +1,47 @@
+<!-- DO NOT MODIFY THIS FILE -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/style.css" type="text/css"/>
+    <title>List Resaturant</title>
+</head>
+
+<body id="bg">
+    <div id="pagesBg">
+    <h1>Submit Location</h1>
+    <button class="button" onclick="getLocation1()">Get Current Resaturant Location</button><br><br>
+    <form id="location" action="/locationConfirmation" method="post" onsubmit="return confirmation();">
+        <fieldset>
+            <label><b>Resaturant Name: </b><input type="text" name="building" id="building" placeholder="Chipotle"></label><br><br>
+            <label><b>Rating(1~10): </b><input type="number" step="1", max="10" name="time" id="time"></label>
+            <div id="demo"></div>
+        </fieldset><br>
+        <input id="buttons" type="reset" />
+        <input id="buttons" type="submit" value="List Resaturant" />
+        <hr>
+    </form>
+    <a href="/">HOME</a>
+    </div>
+</body>
+
+<script>
+    var x= document.getElementById("demo");
+
+    function confirmation() {
+        return window.confirm("Are you sure you want to submit this restaurant?");
+    }
+
+    function getLocation1() {
+        navigator.geolocation.getCurrentPosition(showPosition).toFixed(2);
+    }
+
+    function showPosition(position) {
+        x.innerHTML = `<br><br><b>Latitude: <b><input type="text" name="latitude" value="${position.coords.latitude}">
+        <br><br><b>Longitude: <b><input type="text" name="longitude" value="${position.coords.longitude}">`;
+    }
+
+</script>
+
+</html>
